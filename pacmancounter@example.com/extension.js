@@ -17,7 +17,6 @@ class MyPopup extends PanelMenu.Button {
     let pmItem = new PopupMenu.PopupMenuItem('Install updates');
     pmItem.connect('activate', () => {
 		GLib.spawn_command_line_async('/home/speltriao/.local/share/gnome-shell/extensions/pacmancounter@example.com/launch.sh');
-		Main.notify("Acabou");
     });
     this.menu.addMenuItem(pmItem);
     this.menu.addMenuItem( new PopupMenu.PopupSeparatorMenuItem());
