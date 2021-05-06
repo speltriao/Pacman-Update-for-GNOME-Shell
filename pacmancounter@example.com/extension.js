@@ -67,16 +67,16 @@ async function execCommunicate(argv, input = null, cancellable = null) {
 
 function countUpdates(){
 	let loop = GLib.MainLoop.new(null, false);
-	let saida;
+	let count;
 	execCommunicate(['/home/speltriao/.local/share/gnome-shell/extensions/pacmancounter@example.com/check.sh']).then(stdout => {
     	stdout.split('\n');
-    	saida = stdout.toString();
+    	count = stdout.toString();
     	
     	loop.quit();
 	}).catch(logError);
 
 	loop.run();
-	return saida;
+	return count;
 }
 
 function setButtonText () {
