@@ -6,7 +6,7 @@ const PopupMenu = imports.ui.popupMenu;
 const GObject = imports.gi.GObject;
 const Gio = imports.gi.Gio;
 const Me = imports.misc.extensionUtils.getCurrentExtension();
-const timeSpawn = 7200.0;//interval between spawns, in seconds
+const timeSpawn = 1800.0;//interval between spawns, in seconds
 
 let timeout, myPopup , popupText;
 
@@ -20,9 +20,13 @@ class MyPopup extends PanelMenu.Button {
     });
     this.menu.addMenuItem(pmItem);
     this.menu.addMenuItem( new PopupMenu.PopupSeparatorMenuItem());
+    let pmItem2 = new PopupMenu.PopupMenuItem('Check for updates');
+    pmItem2.connect('activate', () => {
+		setButtonText();
+    });
+    this.menu.addMenuItem(pmItem2);
   }
 });
-
 
 async function execCommunicate(argv, input = null, cancellable = null) {
     let cancelId = 0;
@@ -63,27 +67,17 @@ async function execCommunicate(argv, input = null, cancellable = null) {
             }
         });
     });
+    
 }
 
-function countUpdates(){
-	let loop = GLib.MainLoop.new(null, false);
+async function countUpdates() {
 	let count;
-	execCommunicate(['/home/speltriao/.local/share/gnome-shell/extensions/pacmancounter@example.com/check.sh']).then(stdout => {
+    await execCommunicate(['/home/speltriao/.local/share/gnome-shell/extensions/pacmancounter@example.com/check.sh']).then(stdout => {
     	stdout.split('\n');
     	count = stdout.toString();
-    	
-    	loop.quit();
-	}).catch(logError);
-
-	loop.run();
-	return count;
-}
-
-function setButtonText () {
-  let count = countUpdates();
-  popupText.set_text(count.toString());
-  myPopup.add_child(popupText);
-  return true;
+    	}).catch(logError);
+    popupText.set_text(count.toString());
+  	myPopup.add_child(popupText);
 }
 
 function init () { 
@@ -96,12 +90,13 @@ function init () {
 }
 
 function enable () {
-  setButtonText();
-  timeout = Mainloop.timeout_add_seconds(timeSpawn, setButtonText);
+  countUpdates();
+  timeout = Mainloop.timeout_add_seconds(timeSpawn, countUpdates);
 }
 
 function disable () {
   Mainloop.source_remove(timeout);
   Main.panel._rightBox.remove_child(myPopup);
 }
+
 
