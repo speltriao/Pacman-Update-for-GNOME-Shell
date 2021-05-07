@@ -22,7 +22,7 @@ class MyPopup extends PanelMenu.Button {
     this.menu.addMenuItem( new PopupMenu.PopupSeparatorMenuItem());
     let pmItem2 = new PopupMenu.PopupMenuItem('Check for updates');
     pmItem2.connect('activate', () => {
-		setButtonText();
+		countUpdates();
     });
     this.menu.addMenuItem(pmItem2);
   }
