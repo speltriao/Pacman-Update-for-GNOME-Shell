@@ -1,0 +1,11 @@
+{
+    "name" : "Pacman updates",
+    "description" : "See pacman, AUR and flatpak updates",
+    "shell-version" : [
+        "40.1"
+    ],
+    "url" : "github.com/speltriao/Pacman-Update-for-GNOME-Shell/",
+    "uuid" : "pacmancounter@speltriao.com",
+    "version" : 1.0
+}
+
