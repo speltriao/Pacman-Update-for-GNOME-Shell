@@ -6,7 +6,8 @@ const PopupMenu = imports.ui.popupMenu;
 const GObject = imports.gi.GObject;
 const Gio = imports.gi.Gio;
 const Me = imports.misc.extensionUtils.getCurrentExtension();
-const timeSpawn = 1800.0;//interval between spawns, in seconds
+const Util = imports.misc.util;
+const timeSpawn = 3600.0;//interval between spawns, in seconds
 
 let timeout, myPopup , popupText;
 
@@ -16,11 +17,11 @@ class MyPopup extends PanelMenu.Button {
     super._init(0);
     let pmItem = new PopupMenu.PopupMenuItem('Install updates');
     pmItem.connect('activate', () => {
-		GLib.spawn_command_line_async('/home/speltriao/.local/share/gnome-shell/extensions/pacmancounter@speltriao.com/launch.sh');
+		Util.spawnCommandLine("gnome-terminal -e 'sh -c  \"sudo paru && flatpak update && gnome-extensions disable pacmancounter@speltriao.com && gnome-extensions enable pacmancounter@speltriao.com ; echo Done - Press enter to exit; read _\" '");
     });
     this.menu.addMenuItem(pmItem);
     this.menu.addMenuItem( new PopupMenu.PopupSeparatorMenuItem());
-    let pmItem2 = new PopupMenu.PopupMenuItem('Check for updates');
+    let pmItem2 = new PopupMenu.PopupMenuItem('Count updates');
     pmItem2.connect('activate', () => {
 		countUpdates();
     });
