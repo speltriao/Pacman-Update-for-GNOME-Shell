@@ -17,7 +17,7 @@ class MyPopup extends PanelMenu.Button {
     super._init(0);
     let pmItem = new PopupMenu.PopupMenuItem('Install updates');
     pmItem.connect('activate', () => {
-		Util.spawnCommandLine("gnome-terminal -e 'sh -c  \"sudo paru && flatpak update && gnome-extensions disable pacmancounter@speltriao.com && gnome-extensions enable pacmancounter@speltriao.com ; echo Done - Press enter to exit; read _\" '");
+		Util.spawnCommandLine("gnome-terminal -e 'sh -c  \"paru; flatpak update; gnome-extensions disable pacmancounter@speltriao.com; gnome-extensions enable pacmancounter@speltriao.com\" '");
     });
     this.menu.addMenuItem(pmItem);
     this.menu.addMenuItem( new PopupMenu.PopupSeparatorMenuItem());
