@@ -2,4 +2,4 @@
 Count pacman, AUR and flatpak updates with a GNOME extension.
 
 <br></br>
-![ScreenShot](print.png)
+![ScreenShot](print(1).png)
