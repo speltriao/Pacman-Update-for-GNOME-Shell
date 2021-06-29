@@ -1,5 +1,5 @@
 # Pacman-Update-for-GNOME-Shell
-<p>Count and install pacman, AUR and flatpak updates with a GNOME Shell extension written in Javascript.
+Count and install pacman, AUR and flatpak updates with a GNOME Shell extension written in Javascript.
 <br></br>
 ![ScreenShot](print.png)
 <br></br>
