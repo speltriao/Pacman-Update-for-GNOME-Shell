@@ -7,7 +7,7 @@ const GObject = imports.gi.GObject;
 const Gio = imports.gi.Gio;
 const Me = imports.misc.extensionUtils.getCurrentExtension();
 const Util = imports.misc.util;
-const timeSpawn = 3600.0;//interval between spawns, in seconds
+const timeSpawn = 7200.0;//interval between spawns, in seconds
 
 let timeout, myPopup , popupText;
 
@@ -97,7 +97,9 @@ function enable () {
 
 function disable () {
   Mainloop.source_remove(timeout);
-  Main.panel._rightBox.remove_child(myPopup);
+  myPopup.destroy();
 }
+
+
 
 
