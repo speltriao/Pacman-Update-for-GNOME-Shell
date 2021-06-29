@@ -3,4 +3,5 @@
 <br></br>
 <i>This js extension runs asynchronously, so it doesn't slow up GNOME Shell.</i>
 <br></br>
+<p></p>
 ![ScreenShot](print(1).png)
