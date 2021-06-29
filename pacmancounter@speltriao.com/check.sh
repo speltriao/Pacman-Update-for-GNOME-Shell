@@ -11,3 +11,5 @@ else
 fi
 ALL=$((OFFICIAL+FLATPAK+AUR))
 echo  $ALL
+
+#Requires free IcoMoon font for showing the pacman icon: https://icomoon.io/icons-icomoon.html#
