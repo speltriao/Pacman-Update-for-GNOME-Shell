@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 
 AUR=$(paru -Qua | wc -l)
 OFFICIAL=$(checkupdates | wc -l)
