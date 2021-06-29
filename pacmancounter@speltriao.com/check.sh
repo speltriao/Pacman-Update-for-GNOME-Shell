@@ -1,4 +1,5 @@
 #!/bin/bash
+
 #Requires paru and pacman-contrib package!
 AUR=$(paru -Qua | wc -l)
 OFFICIAL=$(checkupdates | wc -l)
@@ -11,5 +12,4 @@ else
 fi
 ALL=$((OFFICIAL+FLATPAK+AUR))
 echo  $ALL
-
 #Requires free IcoMoon font for showing the pacman icon: https://icomoon.io/icons-icomoon.html#
