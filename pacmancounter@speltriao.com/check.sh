@@ -1,5 +1,5 @@
 #!/bin/bash
-
+#Requires paru and pacman-contrib package!
 AUR=$(paru -Qua | wc -l)
 OFFICIAL=$(checkupdates | wc -l)
 FLATPAK=$(flatpak update | wc -l)
