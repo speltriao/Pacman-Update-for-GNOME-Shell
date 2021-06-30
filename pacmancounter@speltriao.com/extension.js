@@ -91,6 +91,7 @@ function init () {
 }
 
 function enable () {
+  init();
   countUpdates();
   timeout = Mainloop.timeout_add_seconds(timeSpawn, countUpdates);
 }
