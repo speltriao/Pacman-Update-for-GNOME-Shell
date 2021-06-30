@@ -73,7 +73,7 @@ async function execCommunicate(argv, input = null, cancellable = null) {
 
 async function countUpdates() {
 	let count;
-	//Change speltriao to your username!//
+	//Change speltriao to your username//
     await execCommunicate(['/home/speltriao/.local/share/gnome-shell/extensions/pacmancounter@speltriao.com/check.sh']).then(stdout => {
     	stdout.split('\n');
     	count = stdout.toString();
