@@ -81,17 +81,12 @@ async function countUpdates() {
   	myPopup.add_child(popupText);
 }
 
-function init () { 
- myPopup = new MyPopup();
- popupText = new St.Label({
-    	style_class : "examplePanelText",
-        y_align: Clutter.ActorAlign.CENTER
+function enable () {
+  myPopup = new MyPopup();
+  popupText = new St.Label({
+    y_align: Clutter.ActorAlign.CENTER
   });
   Main.panel.addToStatusArea('myPopup', myPopup, 1);
-}
-
-function enable () {
-  init();
   countUpdates();
   timeout = Mainloop.timeout_add_seconds(timeSpawn, countUpdates);
 }
@@ -100,7 +95,3 @@ function disable () {
   Mainloop.source_remove(timeout);
   myPopup.destroy();
 }
-
-
-
-
