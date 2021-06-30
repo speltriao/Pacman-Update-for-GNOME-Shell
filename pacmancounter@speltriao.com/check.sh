@@ -1,5 +1,6 @@
 #!/bin/bash
 
+#Mark this file as executable before using extension.
 #Requires paru and pacman-contrib package!
 AUR=$(paru -Qua | wc -l)
 OFFICIAL=$(checkupdates | wc -l)
