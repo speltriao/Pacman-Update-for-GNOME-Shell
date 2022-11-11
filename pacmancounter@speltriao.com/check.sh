@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 
 #Mark this file as executable before using extension.
 #Requires paru and pacman-contrib package!
