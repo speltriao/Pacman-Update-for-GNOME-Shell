@@ -3,4 +3,4 @@ Count and install pacman, AUR and flatpak updates with a GNOME Shell extension. 
 <br></br>
 ![ScreenShot](print2.png)
 <br></br>
-<i>This Js extension runs asynchronously, so it doesn't slow up GNOME Shell Main loop.</i>
+<i>This extension runs asynchronously, so it doesn't slow up GNOME Shell Main loop.</i>
